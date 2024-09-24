@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Data Entry Software</title>
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+</head>
+<body>
+     <!-- Navbar -->
+    <div class="navbar">
+        <!-- Container for Search ID and Logout button -->
+        <div class="navbar-content">
+            <!-- Search Form -->
+            <form method="POST" action="" class="navbar-form">
+                {% csrf_token %}
+                <input type="text" name="search" class="textfield" placeholder="Search ID">
+            </form>
+
+            <!-- Logout Form -->
+            <form method="POST" action="{% url 'logout' %}" class="navbar-form logout-form">
+                {% csrf_token %}
+                <button type="submit" class="btn logout-btn">Logout</button>
+            </form>
+        </div>
+    </div>
+    <div class="center">
+        <!-- Employee Form -->
+        <form name="form1" action="" method="POST">
+            {% csrf_token %}
+            <h1>Employee Data Entry Software</h1>
+            <div class="form">
+                <!-- Fields for employee information -->
+                <input type="text" name="ename" class="textfield" placeholder="Employee Name" value="{% if result %}{{ result.ename }}{% endif %}">
+                <select class="textfield" name="gender">
+                    <option value="Not Selected">Select Gender</option>
+                    <option value="Male" {% if result and result.gender == 'Male' %}selected{% endif %}>Male</option>
+                    <option value="Female" {% if result and result.gender == 'Female' %}selected{% endif %}>Female</option>
+                    <option value="Other" {% if result and result.gender == 'Other' %}selected{% endif %}>Other</option>
+                </select>
+                <input type="number" name="pno" class="textfield" placeholder="Phone No" maxlength="10" value="{% if result %}{{ result.phone_no }}{% endif %}">
+                <input type="text" name="dept" class="textfield" placeholder="Department" value="{% if result %}{{ result.department }}{% endif %}">
+                <textarea placeholder="Address" name="add">{% if result %}{{ result.address }}{% endif %}</textarea>
+                <!-- Buttons for different actions -->
+                <input type="submit" value="Search" class="btn">
+                <input type="submit" value="Save" name="save" class="btn" style="background-color: red;">
+                <input type="submit" value="Update" name="update" class="btn" style="background-color: darkgreen;">
+                <input type="submit" value="Delete" name="delete" class="btn" style="background-color: brown;" onclick="return checkdelete()">
+                <input type="reset" value="Clear" class="btn" style="background-color: blue;">
+            </div>
+        </form>
+    </div>
+
+    <!-- JavaScript for delete confirmation -->
+    <script>
+        function checkdelete() {
+            return confirm('Are you sure you want to delete this record?');
+        }
+    </script>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #34568B;
+}
+
+/* Navbar Styles */
+.navbar {
+    width: 100%;
+    background-color: #34568B;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center align the content */
+}
+
+.navbar-content {
+    display: block;
+    align-items: center;
+    gap: 10px; /* Adds space between the forms */
+}
+
+.navbar-form {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.textfield {
+    height: 40px;
+    font-size: 18px;
+    border: 2px solid #34568B;
+    border-radius: 5px;
+    padding-left: 10px;
+    margin-right: 10px; /* Space between the search field and button */
+}
+
+.btn {
+    height: 40px;
+    font-size: 18px;
+    background-color: grey;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    padding: 0 15px;
+}
+
+.logout-btn {
+    background-color: red; /* Specific style for the logout button */
+}
+
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 650px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.center h1 {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid grey;
+}
+
+.form {
+    padding-bottom: 15px;
+    margin: 0 20px;
+}
+
+.textfield, textarea {
+    width: 100%;
+    height: 40px;
+    font-size: 18px;
+    border: 2px solid #34568B;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding-left: 10px; 
+    margin: 7px 0;
+}
+
+textarea {
+    height: 80px;
+}
+
+.btn {
+    width: 18%;
+    height: 50px;
+    background-color: grey;
+    border-radius: 5px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    border: 0;
+    margin: 7px 4px;
+}
